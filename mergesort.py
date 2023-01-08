@@ -2,7 +2,7 @@
 def mergeSort(list_to_sort_by_merge):
     # Change 2 - Embedded the original if statement within 
     # the following to check if all items are integers 
-    if all([isinstance(item, float) for item in my_list]) == True:
+    if all([isinstance(item, int) for item in my_list]) == True:
         # Change 3 - Check if the list has more than one element
         # < 1 and != 0 removed cause > 1 is sufficient
         if len(list_to_sort_by_merge) > 1:
@@ -16,9 +16,12 @@ def mergeSort(list_to_sort_by_merge):
             mergeSort(right)
 
             # Merge the sorted left and right halves
+            # Change 4 - Everthing written in one line 
+            #l, r, i = 0
             l = 0
             r = 0
             i = 0
+
             while l < len(left) and r < len(right):
                 if left[l] <= right[r]:
                     # ASSIGNMENT was removed add replaced by the following
@@ -41,9 +44,6 @@ def mergeSort(list_to_sort_by_merge):
                 list_to_sort_by_merge[i] = right[r]
                 r += 1
                 i += 1
-        else:
-            print('There are 0 values in the list')
-            return
     else:
         print('Either no integers were given or one of the values is not an integer.')
         return
@@ -56,7 +56,8 @@ my_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 
 # Plot the original list
 x = range(len(my_list))
-plt.plot(x, my_list)
+plt.bar(x, my_list)
+plt.title('List before Merge Sort Algorithm')
 plt.show()
 
 # Sort the list
@@ -64,5 +65,6 @@ mergeSort(my_list)
 
 # Plot the sorted list
 x = range(len(my_list))
-plt.plot(x, my_list)
+plt.bar(x, my_list)
+plt.title('List after Merge Sort Algorithm')
 plt.show()
