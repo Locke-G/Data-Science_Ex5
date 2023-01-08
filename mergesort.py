@@ -5,7 +5,7 @@ def mergeSort(list_to_sort_by_merge):
     if all([isinstance(item, float) for item in my_list]) == True:
         # Change 3 - Check if the list has more than one element
         # < 1 and != 0 removed cause > 1 is sufficient
-        while len(list_to_sort_by_merge) > 1:
+        if len(list_to_sort_by_merge) > 1:
             # Divide the list into two halves 
             mid = len(list_to_sort_by_merge) // 2
             left = list_to_sort_by_merge[:mid]
@@ -41,8 +41,9 @@ def mergeSort(list_to_sort_by_merge):
                 list_to_sort_by_merge[i] = right[r]
                 r += 1
                 i += 1
-            
-            break
+        else:
+            print('There are 0 values in the list')
+            return
     else:
         print('Either no integers were given or one of the values is not an integer.')
         return
@@ -51,7 +52,7 @@ def mergeSort(list_to_sort_by_merge):
 import matplotlib.pyplot as plt
 
 # Initialize the list to sort
-my_list = []
+my_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 
 # Plot the original list
 x = range(len(my_list))
