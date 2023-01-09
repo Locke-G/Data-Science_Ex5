@@ -5,4 +5,4 @@ def find_single(arr):
             result ^= element
     return result
 
-find_single([5, 2, 3, 2, 5, 3, 1])
+find_single(['abc'])

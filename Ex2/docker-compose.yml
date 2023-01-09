@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  test:
+    build: .
+    command: python -m pytest test_find_single.py
+    volumes:
+      - /c/Users/gabri/Documents/Education/UniGoettingen/WiSe_22-23/DataSci1_(6C)/Homework/Übung5/Git Example Ex 5/Ex2/tests/test_findsingle.py
+  find_single:
+    build: .
+    command: python -c "from findsingle import find_single; print(find_single([1, 1, 3, 3, 5, 5, 7, 7, 9]))"
+    volumes:
+      - /c/Users/gabri/Documents/Education/UniGoettingen/WiSe_22-23/DataSci1_(6C)/Homework/Übung5/Git Example Ex 5/Ex2/findsingle.py
+
+#docker-compose up --exit-code-from test
